@@ -3,6 +3,7 @@
  * Card.java
  * 
  * @author Ricardo Barbosa
+ *         Max Halbert
  * @version November 6, 2019
  * 
  * The structure for the Card class 
