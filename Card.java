@@ -67,4 +67,3 @@ public class Card
           //checks if values are valid 
       }
     }
-}
