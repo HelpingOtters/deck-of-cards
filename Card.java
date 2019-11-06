@@ -23,27 +23,44 @@ public class Card
     private boolean errorFlag;
 
     //Constructors
-    /**
-     * Call the proper mutators.
-     * Must overload public Card for client who wishes to use 
-     * 'A' and suit.Spades as the default
-     * 
-     */
+    public Card(char value, Suit suit)
+    {
+        set(value, suit);
+    }
+
+    public Card()
+    {
+        this('A', Suit.SPADES);
+    }
 
      //Accessors 
-     /**
-      * getSuit(), getValue(), getErrorFlag()
-      */
+     public Suit getSuit()
+     {
+         return suit;
+     }
+
+     public char getValue()
+     {
+         return value;
+     }
+
+     public boolean getErrorFlag()
+     {
+         return errorFlag;
+     }
 
       //Mutators 
       public boolean set(char value, Suit suit)
       {
-          //check for validity
-      
-      //not valid, don't mutate
-      /**
-       * returns false 
-       */
+          if(isValid(value, suit))
+          {
+              this.value = value;
+              this.suit = suit;
+              errorFlag = false;
+              return true;
+          }
+          erroFlag = true;
+          return false;
       }
 
       //Valid card data returned 
