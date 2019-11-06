@@ -60,7 +60,7 @@ public class Card
             errorFlag = false;
             return true;
         }
-        erroFlag = true;
+        errorFlag = true;
         return false;
     }
 
@@ -68,8 +68,8 @@ public class Card
     public String toString()
     {
         if(errorFlag)
-            return "Invalid Card";
-        return value + "of" + suit;
+            return "[Card Not Valid]";
+        return value + " of " + suit;
 
     }
 
