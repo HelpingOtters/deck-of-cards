@@ -19,7 +19,8 @@ public class DecksOfCards
 
     public static void main(String[] arg) {
         // Phase One CARD CLASS
-
+       
+        /*
         System.out.println(CARD_TESTER);
         Card card1 = new Card();
         Card card2 = new Card('Z', Card.Suit.DIAMONDS);
@@ -71,6 +72,16 @@ public class DecksOfCards
         deck.shuffle();
         System.out.println(deck.toString());
         deck.dealCard();
+        */
+        
+       
+ 
+
+        // Lindsey's test of Deck constructors 
+        Deck deckL = new Deck();
+        System.out.println(deckL.toString());
+        
+   
         
     }
 
