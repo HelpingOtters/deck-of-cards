@@ -59,7 +59,7 @@ public class Deck
        * once, in the (first-invoked) constructor and  never changes.
        */
    }
-   // made this void for now
+
    /* mixes up the cards with the help of the standard random number 
     * generator.
     */
