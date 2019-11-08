@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Deck",
+            "request": "launch",
+            "mainClass": "src.Deck",
+            "projectName": "deck-of-cards"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - DecksOfCards",
             "request": "launch",
             "mainClass": "DecksOfCards"
