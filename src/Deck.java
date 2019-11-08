@@ -94,25 +94,28 @@ public class Deck
             masterCounter = -1;
       }
    }
-
-   /* mixes up the cards with the help of the standard random number 
-    * generator.
+   /**
+    * Shuffles the deck of Cards
     */
-    public void shuffle() 
-    {
-       Random shuffle = new Random();
-       Card tempCard;
-       int randCard;
+   public void shuffle() 
+   {
+      Random shuffle = new Random();
+      Card tempCard;
+      int randCard;
 
-       for(int x = 0; x < cards.length; x++)
-       {
-         randCard = shuffle.nextInt(ONE_PACK);
-         tempCard = cards[randCard];
-         cards[randCard] = cards[x];
-         cards[x] = tempCard;
-       }
-
-       
+      //loops through the entire deck
+      for(int x = 0; x < cards.length; x++)
+      {
+        //Picks a random card from the deck
+        randCard = shuffle.nextInt(ONE_PACK);
+        //assigns the random card to a placeholder
+        tempCard = cards[randCard];
+        //assigns the random card to the next card in the deck
+        cards[randCard] = cards[x];
+        //assigns the next card in the deck to the card in 
+        //the place holder
+        cards[x] = tempCard;
+      }      
     }
    
     /**
