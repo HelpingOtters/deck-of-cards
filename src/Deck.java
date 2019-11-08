@@ -1,3 +1,11 @@
+package src;
+
+import java.util.Random;
+
+import javax.lang.model.util.ElementScanner6;
+
+import src.Card.Suit;
+
 /*
  * Card.java
  * 
@@ -7,12 +15,16 @@
  * The structure for a deck of cards
  */
 
+// added some changes for testing
+//added some changes as well 
+
+
 public class Deck 
 {
-
    // public static variable for maximum cards in a deck
    public static final int MAX_CARDS = 312; // 6 x 52
    public static final int ONE_PACK = 52;
+   public static boolean beenHereBefore = false;
 
    // private static variable for master pack of cards
    private static Card[] masterPack = new Card[ONE_PACK];
@@ -21,20 +33,39 @@ public class Deck
    private Card[] cards;
    private int topCard;
 
-   // constructor
+   /**
+    * Constructor that takes number of packs and populates the masterPack array
+    * as well as the card array 
+    * @param numPacks
+    */
    public Deck(int numPacks)
    {
-      /* constructor that populates the arrays and assigns initial 
-       * values to members.  
-       */
+      allocateMasterPack();
+      cards = new Card[numPacks * ONE_PACK];
+      int masterCounter = 0;
+      
+      for(int i = 0; i < cards.length; i++)
+      {
+         cards[i] = masterPack[masterCounter];
+         
+         if(masterCounter == ONE_PACK - 1) 
+            masterCounter = 0;
+      }
+      
    }
 
-   // Overloaded constructor 
+   /*
+    * Overloaded no argument constructor 
+    */
    public Deck() 
    {
-      /* Overloaded constructor so that if no parameters are passed, 
-       * 1 pack is assumed.
-       */
+      allocateMasterPack();
+      
+      for(int i = 0; i < cards.length; i++)
+      {
+         cards[i] = masterPack[i];
+      }
+      
    }
 
    public void init(int numPacks) 
@@ -45,12 +76,24 @@ public class Deck
        */
    }
    // made this void for now
-   public void shuffle() 
-   {
-      /* mixes up the cards with the help of the standard random number 
-       * generator.
-       */
-   }
+   /* mixes up the cards with the help of the standard random number 
+    * generator.
+    */
+    public void shuffle() 
+    {
+       Random shuffle = new Random();
+       Card tempCard;
+       int randCard;
+
+       for(int x = 0; x < cards.length; x++)
+       {
+         randCard = shuffle.nextInt(ONE_PACK);
+         tempCard = cards[randCard];
+         cards[randCard] = cards[x];
+         cards[x] = tempCard;
+       }
+ 
+    }
 
    public Card dealCard()
    {
@@ -76,21 +119,45 @@ public class Deck
 
    private static void allocateMasterPack()
    {
-      /* this is a private method that will be called by the constructor.  
-       * However, it has to be done with a very simple twist:  even if many 
-       * Deck objects are constructed in a given program, this static method 
-       * will not allow itself to be executed more than once.  Since 
-       * masterPack[] is a static, unchanging, entity, it need not be built 
-       * every time a new Deck is instantiated.  So this method needs to be 
-       * able to ask itself, "Have I been here before?", and if the answer is 
-       * "yes", it will immediately return without doing anything;  it has 
-       * already built masterPack[] in a previous invocation.
-       */
+      // Check if this method has already been run. Return if it has.
+      if(beenHereBefore) return;
+      
+      char[] value = 
+         {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
+     
+      
+      Suit[] suits = 
+         {Card.Suit.DIAMONDS, Card.Suit.SPADES, Card.Suit.HEARTS, Card.Suit.CLUBS};
+      
+      int curIndex = 0;
+      
+      for(int x = 0; x < value.length; x++)
+      { 
+         for(int y = 0; y < suits.length; y++)
+         {
+            masterPack[curIndex] = new Card(value[x], suits[y]);
+            curIndex++;
+         }
+      }
+      
+      beenHereBefore = true;
    }
+   public String toString()
+   {
+      String deck = "";
+      
+      for(int x = 0; x < cards.length; x++)
+      {
+            deck += cards[x];
+            //deck += " ";
+         
+         deck += "\n";   
+      }      
+      return deck;
+   }
+   
 
 
 }
 
-
-
-
+//do not make changes to this
