@@ -70,6 +70,7 @@ public class DecksOfCards
         System.out.println(deck.toString());
         deck.shuffle();
         System.out.println(deck.toString());
+        deck.dealCard();
         
     }
 

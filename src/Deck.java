@@ -92,19 +92,34 @@ public class Deck
          cards[randCard] = cards[x];
          cards[x] = tempCard;
        }
- 
-    }
 
+       
+    }
+   
+    /**
+     * Returns and removes the first card from the deck and it
+     * makes sure there are still cards available.
+     * @return The topCard
+     */
    public Card dealCard()
    {
+      Card topCard = cards[getTopCard()];
+      System.out.println("This is the TopCard: " + topCard);
+      //cards
+
+
       return null;
-      /* returns and removes the card in the top occupied position of cards[]. 
-       * Make sure there are still cards available.
-       */
    }
 
+   /**
+    * Returns the int index of the first element in the array.
+    * @return 0 to represent the first index of the array
+    */
    public int getTopCard()
    {
+      //used zero for first index
+      int topCard = 0;
+
       return topCard;
 
    }
