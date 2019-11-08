@@ -1,6 +1,4 @@
 package src;
-import src.Card.Suit;
-
 /*
  * Card.java
  * 
@@ -24,6 +22,11 @@ public class Deck
    private static Card[] masterPack = new Card[ONE_PACK];
    private Card[] cards;
    private int topCard;
+<<<<<<< HEAD
+=======
+   
+   public enum Suit{CLUBS, DIAMONDS, HEARTS, SPADES};
+>>>>>>> parent of d88d8fb... fixed Suit enum errors with import
 
    // constructor
    public Deck(int numPacks)
@@ -31,10 +34,13 @@ public class Deck
       /* constructor that populates the arrays and assigns initial 
        * values to members.  
        */
+<<<<<<< HEAD
       allocateMasterPack();
       //cards = masterPack;
       
       
+=======
+>>>>>>> parent of d88d8fb... fixed Suit enum errors with import
    }
 
    // Overloaded constructor 
@@ -89,10 +95,16 @@ public class Deck
       
       char[] value = 
          {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
+<<<<<<< HEAD
+=======
+      
+      Suit[] suits = {Suit.DIAMONDS, Suit.SPADES, Suit.HEARTS, Suit.CLUBS};
+>>>>>>> parent of d88d8fb... fixed Suit enum errors with import
       
       int curIndex = 0;
       
       for(int x = 0; x < value.length; x++)
+<<<<<<< HEAD
       { 
          Card card = new Card(value[x], Card.Suit.DIAMONDS);
          
@@ -108,6 +120,16 @@ public class Deck
          System.out.println(card.toString());
          System.out.println(masterPack[].toString());
         
+=======
+      {
+         
+         for(int y = 0; y < suits.length; y++)
+         {
+            masterPack[curIndex] = new Card(value[x], suits[y]);
+            curIndex++;
+         }
+         
+>>>>>>> parent of d88d8fb... fixed Suit enum errors with import
       }
       
       
