@@ -1,4 +1,6 @@
 package src;
+import src.Card.Suit;
+
 /*
  * Card.java
  * 
@@ -23,7 +25,7 @@ public class Deck
    private Card[] cards;
    private int topCard;
    
-   public enum Suit{CLUBS, DIAMONDS, HEARTS, SPADES};
+   //public enum Suit{CLUBS, DIAMONDS, HEARTS, SPADES};
 
    // constructor
    public Deck(int numPacks)
@@ -31,6 +33,10 @@ public class Deck
       /* constructor that populates the arrays and assigns initial 
        * values to members.  
        */
+      allocateMasterPack();
+      cards = masterPack;
+      
+      
    }
 
    // Overloaded constructor 
@@ -95,20 +101,20 @@ public class Deck
       
       char[] value = 
          {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
+     
       
-      Suit[] suits = {Suit.DIAMONDS, Suit.SPADES, Suit.HEARTS, Suit.CLUBS};
+      Suit[] suits = 
+         {Card.Suit.DIAMONDS, Card.Suit.SPADES, Card.Suit.HEARTS, Card.Suit.CLUBS};
       
       int curIndex = 0;
       
       for(int x = 0; x < value.length; x++)
-      {
-         
+      { 
          for(int y = 0; y < suits.length; y++)
          {
             masterPack[curIndex] = new Card(value[x], suits[y]);
             curIndex++;
          }
-         
       }
       
       beenHereBefore = true;
