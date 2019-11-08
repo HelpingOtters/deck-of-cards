@@ -16,12 +16,18 @@ import src.Card.Suit;
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6990135b2f65ac628d56b0f4e45a8c0d2e9d2e42
 // added some changes for testing
 //added some changes as well 
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> e0ead8fbc80c81bddc545b27dd1288d2b0b85a37
+=======
+>>>>>>> 6990135b2f65ac628d56b0f4e45a8c0d2e9d2e42
 public class Deck 
 {
    // public static variable for maximum cards in a deck
@@ -43,6 +49,10 @@ public class Deck
     */
    public Deck(int numPacks)
    {
+      // If numPacks is too large, automatically make it 6 packs
+      if((numPacks * ONE_PACK) >= MAX_CARDS)
+         numPacks = 6;
+
       allocateMasterPack();
 
       // Create the cards array with 52 x numPacks cards
@@ -91,10 +101,8 @@ public class Deck
          if(masterCounter == ONE_PACK - 1) 
             masterCounter = -1;
       }
-      
-
    }
-   // made this void for now
+
    /* mixes up the cards with the help of the standard random number 
     * generator.
     */
@@ -111,19 +119,34 @@ public class Deck
          cards[randCard] = cards[x];
          cards[x] = tempCard;
        }
- 
-    }
 
+       
+    }
+   
+    /**
+     * Returns and removes the first card from the deck and it
+     * makes sure there are still cards available.
+     * @return The topCard
+     */
    public Card dealCard()
    {
+      Card topCard = cards[getTopCard()];
+      System.out.println("This is the TopCard: " + topCard);
+      //cards
+
+
       return null;
-      /* returns and removes the card in the top occupied position of cards[]. 
-       * Make sure there are still cards available.
-       */
    }
 
+   /**
+    * Returns the int index of the first element in the array.
+    * @return 0 to represent the first index of the array
+    */
    public int getTopCard()
    {
+      //used zero for first index
+      topCard = 0;
+
       return topCard;
 
    }
