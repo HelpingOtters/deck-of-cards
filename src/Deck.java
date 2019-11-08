@@ -36,6 +36,10 @@ public class Deck
     */
    public Deck(int numPacks)
    {
+      // If numPacks is too large, automatically make it 6 packs
+      if((numPacks * ONE_PACK) >= MAX_CARDS)
+         numPacks = 6;
+
       allocateMasterPack();
 
       // Create the cards array with 52 x numPacks cards
@@ -84,8 +88,6 @@ public class Deck
          if(masterCounter == ONE_PACK - 1) 
             masterCounter = -1;
       }
-      
-
    }
    // made this void for now
    /* mixes up the cards with the help of the standard random number 
