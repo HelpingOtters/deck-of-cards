@@ -17,37 +17,51 @@ import src.Card.Suit;
 
 public class Deck 
 {
-
    // public static variable for maximum cards in a deck
    public static final int MAX_CARDS = 312; // 6 x 52
    public static final int ONE_PACK = 52;
-   
-   // static variable to keep track if the master pack has already been created
    public static boolean beenHereBefore = false;
 
-   // private member data
+   // private static variable for master pack of cards
    private static Card[] masterPack = new Card[ONE_PACK];
+
+   // private member data
    private Card[] cards;
    private int topCard;
 
-   // constructor
+   /**
+    * Constructor that takes number of packs and populates the masterPack array
+    * as well as the card array 
+    * @param numPacks
+    */
    public Deck(int numPacks)
    {
-      /* constructor that populates the arrays and assigns initial 
-       * values to members.  
-       */
       allocateMasterPack();
-      //cards = masterPack;
+      cards = new Card[numPacks * ONE_PACK];
+      int masterCounter = 0;
       
+      for(int i = 0; i < cards.length; i++)
+      {
+         cards[i] = masterPack[masterCounter];
+         
+         if(masterCounter == ONE_PACK - 1) 
+            masterCounter = 0;
+      }
       
    }
 
-   // Overloaded constructor 
+   /*
+    * Overloaded no argument constructor 
+    */
    public Deck() 
    {
-      /* Overloaded constructor so that if no parameters are passed, 
-       * 1 pack is assumed.
-       */
+      allocateMasterPack();
+      
+      for(int i = 0; i < cards.length; i++)
+      {
+         cards[i] = masterPack[i];
+      }
+      
    }
 
    public void init(int numPacks) 
@@ -106,27 +120,21 @@ public class Deck
       
       char[] value = 
          {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
+     
+      
+      Suit[] suits = 
+         {Card.Suit.DIAMONDS, Card.Suit.SPADES, Card.Suit.HEARTS, Card.Suit.CLUBS};
       
       int curIndex = 0;
       
       for(int x = 0; x < value.length; x++)
       { 
-         Card card = new Card(value[x], Card.Suit.DIAMONDS);
-         
-         masterPack[curIndex] = new Card(value[x], Card.Suit.DIAMONDS);
-         
-         /*masterPack[curIndex] = new Card(value[x], Card.Suit.DIAMONDS);
-         masterPack[curIndex + 1] = new Card(value[x], Card.Suit.SPADES);
-         masterPack[curIndex + 2] = new Card(value[x], Card.Suit.HEARTS);
-         masterPack[curIndex + 3] = new Card(value[x], Card.Suit.CLUBS);
-         */
-         curIndex += 4;
-            
-         System.out.println(card.toString());
-         System.out.println(masterPack[].toString());
-        
+         for(int y = 0; y < suits.length; y++)
+         {
+            masterPack[curIndex] = new Card(value[x], suits[y]);
+            curIndex++;
+         }
       }
-      
       
       beenHereBefore = true;
    }
@@ -145,16 +153,5 @@ public class Deck
    }
    
 
-   public static void main(String[] args)
-   {
-      Deck deck = new Deck(1);
-      
-   }
-   
+
 }
-
-
-
-
-
-
