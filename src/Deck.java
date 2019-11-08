@@ -16,16 +16,14 @@ public class Deck
    // public static variable for maximum cards in a deck
    public static final int MAX_CARDS = 312; // 6 x 52
    public static final int ONE_PACK = 52;
+   
+   // static variable to keep track if the master pack has already been created
    public static boolean beenHereBefore = false;
 
-   // private static variable for master pack of cards
-   private static Card[] masterPack = new Card[ONE_PACK];
-
    // private member data
+   private static Card[] masterPack = new Card[ONE_PACK];
    private Card[] cards;
    private int topCard;
-   
-   //public enum Suit{CLUBS, DIAMONDS, HEARTS, SPADES};
 
    // constructor
    public Deck(int numPacks)
@@ -34,7 +32,7 @@ public class Deck
        * values to members.  
        */
       allocateMasterPack();
-      cards = masterPack;
+      //cards = masterPack;
       
       
    }
@@ -86,42 +84,45 @@ public class Deck
 
    private static void allocateMasterPack()
    {
-      /* this is a private method that will be called by the constructor.  
-       * However, it has to be done with a very simple twist:  even if many 
-       * Deck objects are constructed in a given program, this static method 
-       * will not allow itself to be executed more than once.  Since 
-       * masterPack[] is a static, unchanging, entity, it need not be built 
-       * every time a new Deck is instantiated.  So this method needs to be 
-       * able to ask itself, "Have I been here before?", and if the answer is 
-       * "yes", it will immediately return without doing anything;  it has 
-       * already built masterPack[] in a previous invocation.
-       */
       // Check if this method has already been run. Return if it has.
       if(beenHereBefore) return;
       
       char[] value = 
          {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
-     
-      
-      Suit[] suits = 
-         {Card.Suit.DIAMONDS, Card.Suit.SPADES, Card.Suit.HEARTS, Card.Suit.CLUBS};
       
       int curIndex = 0;
       
       for(int x = 0; x < value.length; x++)
       { 
-         for(int y = 0; y < suits.length; y++)
-         {
-            masterPack[curIndex] = new Card(value[x], suits[y]);
-            curIndex++;
-         }
+         Card card = new Card(value[x], Card.Suit.DIAMONDS);
+         
+         masterPack[curIndex] = new Card(value[x], Card.Suit.DIAMONDS);
+         
+         /*masterPack[curIndex] = new Card(value[x], Card.Suit.DIAMONDS);
+         masterPack[curIndex + 1] = new Card(value[x], Card.Suit.SPADES);
+         masterPack[curIndex + 2] = new Card(value[x], Card.Suit.HEARTS);
+         masterPack[curIndex + 3] = new Card(value[x], Card.Suit.CLUBS);
+         */
+         curIndex += 4;
+            
+         System.out.println(card.toString());
+         System.out.println(masterPack[].toString());
+        
       }
+      
       
       beenHereBefore = true;
    }
 
-
+   public static void main(String[] args)
+   {
+      Deck deck = new Deck(1);
+      
+   }
+   
 }
+
+
 
 
 
