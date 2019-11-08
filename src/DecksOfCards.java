@@ -63,6 +63,14 @@ public class DecksOfCards
 
         System.out.println(hand1.toString());
 
+        //Phase 3 Deck Class
+        
+        //dan's test of shuffle method. OK to delete
+        Deck deck = new Deck(1);
+        System.out.println(deck.toString());
+        deck.shuffle();
+        System.out.println(deck.toString());
+        
     }
 
 }

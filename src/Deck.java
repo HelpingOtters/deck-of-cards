@@ -1,4 +1,9 @@
 package src;
+
+import java.util.Random;
+
+import javax.lang.model.util.ElementScanner6;
+
 import src.Card.Suit;
 
 /*
@@ -55,12 +60,24 @@ public class Deck
        */
    }
    // made this void for now
-   public void shuffle() 
-   {
-      /* mixes up the cards with the help of the standard random number 
-       * generator.
-       */
-   }
+   /* mixes up the cards with the help of the standard random number 
+    * generator.
+    */
+    public void shuffle() 
+    {
+       Random shuffle = new Random();
+       Card tempCard;
+       int randCard;
+
+       for(int x = 0; x < cards.length; x++)
+       {
+         randCard = shuffle.nextInt(ONE_PACK);
+         tempCard = cards[randCard];
+         cards[randCard] = cards[x];
+         cards[x] = tempCard;
+       }
+ 
+    }
 
    public Card dealCard()
    {
@@ -119,6 +136,20 @@ public class Deck
       
       beenHereBefore = true;
    }
+   public String toString()
+   {
+      String deck = "";
+      
+      for(int x = 0; x < cards.length; x++)
+      {
+            deck += cards[x];
+            //deck += " ";
+         
+         deck += "\n";   
+      }      
+      return deck;
+   }
+   
 
 
 }

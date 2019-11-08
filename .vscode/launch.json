@@ -4,6 +4,13 @@
             "type": "java",
             "name": "CodeLens (Launch) - DecksOfCards",
             "request": "launch",
+            "mainClass": "src.DecksOfCards",
+            "projectName": "deck-of-cards"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DecksOfCards",
+            "request": "launch",
             "mainClass": "DecksOfCards"
         },
         {
