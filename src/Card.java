@@ -35,10 +35,10 @@ public class Card
         this('A', Suit.SPADES);
     }
      // Copy Constructor
-     public Card (Card otherCard)
-     {
-       set(otherCard.value, otherCard.suit);
-     }
+    public Card (Card otherCard)
+    {
+      set(otherCard.value, otherCard.suit);
+    }
 
      //Accessors 
      public Suit getSuit()

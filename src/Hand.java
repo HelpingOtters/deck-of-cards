@@ -1,4 +1,99 @@
 /**
+ * Hand.java
+ * 
+ * @author Ricardo Barbosa
+ *         Max Halbert
+ * 
+ * The hands of the Card class 
+ */
+
+// public class Hand 
+// {
+//     public static final int MAX_CARDS = 50;
+//     private Card[] myCards = new Card[MAX_CARDS];
+//     private int numCards;
+
+//     /**
+//      * Initialize the hand by creating an empty array
+//      */
+//     public Hand()
+//     {
+//         resetHand();
+//     }
+
+//     /**
+//      * Resets the hand by emptying the array 
+//      */
+//     public void resetHand()
+//     {
+//         myCards = new Card[MAX_CARDS];
+//         numCards = 0;
+//     }
+
+//     /**
+//      * Adds card to hand until hand is full 
+//      */
+//     public boolean takeCard(Card card)
+//     {
+//         if (numCards >= MAX_CARDS)
+//         {
+//             return false;
+//         }
+
+//         Card newCard = new Card(card.getValue(), card.getSuit());
+//         myCards[numCards++] = newCard;
+//         return true;
+//     }
+
+//     /**
+//      * playCard() will remove the recent card from hand and return it 
+//      */
+//     public Card playCard()
+//     {
+//         numCards--;
+//         Card card = myCards[numCards];
+//         myCards[numCards] = null;
+//         return card;
+//     }
+
+//     /**
+//      * Stringify the current hand 
+//     */
+//     public String toString()
+//     {
+//         String currentHand= "";
+//         for (int i = 0; i < numCards; i++)
+//         {
+//             currentHand += myCards[i] + " ";
+//         }
+//         return "Hand = ( " + currentHand + ")";
+
+//     }
+
+//     /**
+//      * Return number of cards in the hand 
+//      */
+//     public int getNumCards()
+//     {
+//         return numCards;
+//     }
+
+//     /**
+//     * Returns individual card 
+//     */
+//     public Card inspectCard(int k)
+//     {
+//         if (k >= 0 && k < MAX_CARDS)
+//         {
+//             return myCards[k];
+//         }
+
+//         return new Card('Z', Card.Suit.DIAMONDS);
+//     }
+
+// }
+
+/**
  * 
  * Hand.java class contains cards of a hand and number of cards in the hand
  * take a card to the hand or play a card from the hand
@@ -63,8 +158,7 @@ public class Hand
             myHand += myCards[i] + ", ";
          
       }
-      
-      return "\nAfter playing all cards\nHand = (" + myHand + " )";
+      return "\nHand = (" + myHand + " )";
    }
    
    public int getNumCards()
