@@ -15,6 +15,10 @@ import src.Card.Suit;
  * The structure for a deck of cards
  */
 
+// added some changes for testing
+//added some changes as well 
+
+
 public class Deck 
 {
    // public static variable for maximum cards in a deck
@@ -89,7 +93,7 @@ public class Deck
             masterCounter = -1;
       }
    }
-   // made this void for now
+
    /* mixes up the cards with the help of the standard random number 
     * generator.
     */
@@ -106,19 +110,34 @@ public class Deck
          cards[randCard] = cards[x];
          cards[x] = tempCard;
        }
- 
-    }
 
+       
+    }
+   
+    /**
+     * Returns and removes the first card from the deck and it
+     * makes sure there are still cards available.
+     * @return The topCard
+     */
    public Card dealCard()
    {
+      Card topCard = cards[getTopCard()];
+      System.out.println("This is the TopCard: " + topCard);
+      //cards
+
+
       return null;
-      /* returns and removes the card in the top occupied position of cards[]. 
-       * Make sure there are still cards available.
-       */
    }
 
+   /**
+    * Returns the int index of the first element in the array.
+    * @return 0 to represent the first index of the array
+    */
    public int getTopCard()
    {
+      //used zero for first index
+      topCard = 0;
+
       return topCard;
 
    }
@@ -175,3 +194,5 @@ public class Deck
 
 
 }
+
+//do not make changes to this
