@@ -118,7 +118,7 @@ public class Deck
    public int getTopCard()
    {
       //used zero for first index
-      int topCard = 0;
+      topCard = 0;
 
       return topCard;
 
