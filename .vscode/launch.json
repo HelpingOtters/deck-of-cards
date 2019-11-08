@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DecksOfCards",
+            "request": "launch",
+            "mainClass": "DecksOfCards"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DeckOfCards",
+            "request": "launch",
+            "mainClass": "DeckOfCards"
+        }
+    ]
+}
