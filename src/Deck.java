@@ -15,9 +15,6 @@ import src.Card.Suit;
  * The structure for a deck of cards
  */
 
-// Testing pushing from VS Code
-
-
 public class Deck 
 {
    // public static variable for maximum cards in a deck
@@ -33,8 +30,8 @@ public class Deck
    private int topCard;
 
    /**
-    * Constructor that takes number of packs and populates the masterPack array
-    * as well as the card array 
+    * Constructor that takes in a number of packs as an argument and then creates a deck 
+    * of cards with that many pakcs of cards (52 x numPacks)
     * @param numPacks
     */
    public Deck(int numPacks)
@@ -61,7 +58,8 @@ public class Deck
    }
 
    /*
-    * Overloaded no argument constructor 
+    * Overloaded no argument constructor that creates a pack of cards using 
+    * just one deck
     */
    public Deck() 
    {
@@ -76,7 +74,6 @@ public class Deck
          // Create a new Card Object, copying it from the masterPack
          cards[i] = new Card(masterPack[i]);
       }
-      
    }
 
    public void init(int numPacks) 
@@ -85,6 +82,7 @@ public class Deck
        * not repopulate the static array, masterPack[], since that was done 
        * once, in the (first-invoked) constructor and  never changes.
        */
+
    }
    // made this void for now
    /* mixes up the cards with the help of the standard random number 
