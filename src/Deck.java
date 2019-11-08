@@ -38,23 +38,11 @@ public class Deck
    {
       allocateMasterPack();
 
-      // Create the cards array with the correct number of packs
+      // Create the cards array with 52 x numPacks cards
       cards = new Card[numPacks * ONE_PACK];
-      
-      // Variable to keep track of the current index in masterPack 
-      int masterCounter = 0;
-      
-      // Populate the card array with Card objects, copying values from masterPack
-      for(int i = 0; i < cards.length; i++, masterCounter++)
-      {
-         // Create a new Card Object, copying it from the masterPack
-         cards[i] = new Card(masterPack[masterCounter]);
 
-         // If the cards array is more than one pack, reset the index of masterPack 
-         // in order to loop through it again
-         if(masterCounter == ONE_PACK - 1) 
-            masterCounter = -1;
-      }
+      // populate the cards array
+      init(numPacks);
    }
 
    /*
@@ -76,12 +64,27 @@ public class Deck
       }
    }
 
+   /**
+    * Method to re-populate cards[] with 52 x numPacks cards.
+    * @param numPacks
+    */
    public void init(int numPacks) 
    {
-      /* re-populate cards[] with the standard 52 × numPacks cards. We should 
-       * not repopulate the static array, masterPack[], since that was done 
-       * once, in the (first-invoked) constructor and  never changes.
-       */
+      // Variable to keep track of the current index in masterPack 
+      int masterCounter = 0;
+      
+      // Populate the card array with Card objects, copying values from masterPack
+      for(int i = 0; i < cards.length; i++, masterCounter++)
+      {
+         // Create a new Card Object, copying it from the masterPack
+         cards[i] = new Card(masterPack[masterCounter]);
+
+         // If the cards array is more than one pack, reset the index of masterPack 
+         // in order to loop through it again
+         if(masterCounter == ONE_PACK - 1) 
+            masterCounter = -1;
+      }
+      
 
    }
    // made this void for now
