@@ -1,3 +1,4 @@
+package src;
 /*
  * Card.java
  * 
@@ -13,6 +14,7 @@ public class Deck
    // public static variable for maximum cards in a deck
    public static final int MAX_CARDS = 312; // 6 x 52
    public static final int ONE_PACK = 52;
+   public static boolean beenHereBefore = false;
 
    // private static variable for master pack of cards
    private static Card[] masterPack = new Card[ONE_PACK];
@@ -20,6 +22,8 @@ public class Deck
    // private member data
    private Card[] cards;
    private int topCard;
+   
+   public enum Suit{CLUBS, DIAMONDS, HEARTS, SPADES};
 
    // constructor
    public Deck(int numPacks)
@@ -86,6 +90,26 @@ public class Deck
        * "yes", it will immediately return without doing anything;  it has 
        * already built masterPack[] in a previous invocation.
        */
+      // Check if this method has already been run. Return if it has.
+      if(beenHereBefore) return;
+      
+      char[] value = 
+         {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
+      
+      Suit[] suits = {Suit.DIAMONDS, Suit.SPADES, Suit.HEARTS, Suit.CLUBS};
+      
+      int curIndex = 0;
+      
+      for(int x = 0; x < value.length; x++)
+      {
+         
+         for(int y = 0; y < suits.length; y++)
+         {
+            masterPack[curIndex] = new Card(value[x], suits[y]);
+            curIndex++;
+         }
+         
+      }
    }
 
 
