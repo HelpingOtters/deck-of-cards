@@ -7,7 +7,7 @@
  * The structure for a deck of cards
  */
 
-public class Deck() 
+public class Deck 
 {
 
    // public static variable for maximum cards in a deck
@@ -15,7 +15,7 @@ public class Deck()
    public static final int ONE_PACK = 52;
 
    // private static variable for master pack of cards
-   private static Card[] masterPack = Card[ONE_PACK];
+   private static Card[] masterPack = new Card[ONE_PACK];
 
    // private member data
    private Card[] cards;
@@ -44,8 +44,8 @@ public class Deck()
        * once, in the (first-invoked) constructor and  never changes.
        */
    }
-
-   public shuffle() 
+   // made this void for now
+   public void shuffle() 
    {
       /* mixes up the cards with the help of the standard random number 
        * generator.
@@ -54,6 +54,7 @@ public class Deck()
 
    public Card dealCard()
    {
+      return null;
       /* returns and removes the card in the top occupied position of cards[]. 
        * Make sure there are still cards available.
        */
@@ -61,11 +62,13 @@ public class Deck()
 
    public int getTopCard()
    {
+      return topCard;
 
    }
 
    public Card inspectCard(int k)
    {
+      return null;
       /* Accessor for an individual card.  Returns a card with 
        * errorFlag = true if k is bad.
        */
