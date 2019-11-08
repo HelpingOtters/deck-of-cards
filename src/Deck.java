@@ -9,8 +9,9 @@ import src.Card.Suit;
 /*
  * Card.java
  * 
- * @author 
- * @version
+ * @author Lindsey Reynolds
+ * @author Dan Sedano
+ * @version 11/8/19
  * 
  * The structure for a deck of cards
  */
@@ -115,29 +116,41 @@ public class Deck
     }
    
     /**
-     * Returns and removes the first card from the deck and it
+     * Deals a card by taking the top of the deck and
      * makes sure there are still cards available.
-     * @return The topCard
+     * @return the top Card from the deck.
      */
    public Card dealCard()
    {
-      Card topCard = cards[getTopCard()];
-      System.out.println("This is the TopCard: " + topCard);
-      //cards
-
-
+      int topCard = getTopCard();
+      Card dealCard;
+      //checks if there are cards in the deck
+      if(topCard > 0)
+      {
+         //assings the top card to the dealCard variable
+         dealCard = cards[topCard-1];
+         //removes the topcard from the deck
+         cards[topCard-1] = null;
+         return dealCard;
+      }
+      //returns null if no more cards
       return null;
    }
 
    /**
-    * Returns the int index of the first element in the array.
-    * @return 0 to represent the first index of the array
+    * Counts the number of cards in the deck
+    * @return the number of cards in the deck
     */
    public int getTopCard()
    {
-      //used zero for first index
       topCard = 0;
-
+      //traverses the array and counts all non-null elements
+      for(int x = 0; x < cards.length; x++)
+      {
+         if(cards[x] != null)
+         topCard++;
+      }
+      //returns the number of cards
       return topCard;
 
    }
@@ -177,16 +190,26 @@ public class Deck
       
       beenHereBefore = true;
    }
+   /**
+    * Returns a String representation of the deck.
+    * @return returns a String representation of the deck
+    */
    public String toString()
    {
       String deck = "";
       
       for(int x = 0; x < cards.length; x++)
       {
-            deck += cards[x];
-            //deck += " ";
          
-         deck += "\n";   
+         if(cards[x] != null) 
+         {
+            deck += "Card #"; 
+            deck += x;
+            deck += " ";
+            deck += cards[x];
+            deck += "\n";
+         }  
+    
       }      
       return deck;
    }

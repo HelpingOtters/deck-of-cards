@@ -65,23 +65,45 @@ public class DecksOfCards
         System.out.println(hand1.toString());
 
         //Phase 3 Deck Class
-        
+    */   
+    /* 
         //dan's test of shuffle method. OK to delete
         Deck deck = new Deck(1);
-        System.out.println(deck.toString());
+        //System.out.println(deck.toString());
         deck.shuffle();
+        System.out.println("The original deck");
+        System.out.println(deck.toString());
+        /*
+        System.out.println("numOfCards: " + deck.getTopCard());
         System.out.println(deck.toString());
         deck.dealCard();
+        System.out.println("numOfCards: " + deck.getTopCard());
+        System.out.println("------------------round two-----------------");
+        System.out.println("numOfCards: " + deck.getTopCard());
+        deck.dealCard();
+        System.out.println("numOfCards: " + deck.getTopCard());
+        //System.out.println(deck.toString());
+        ///////////
+        for(int x = 0; x < 100; x++)
+        {
+            System.out.println("BEFORE numOfCards: " + deck.getTopCard());
+            System.out.println(deck.dealCard() + "\n");
+            System.out.println("AFTER numOfCards: " + deck.getTopCard());
+        }
+        System.out.println("Below is how the deck looks like after dealing");
+        System.out.println(deck.toString());
         */
+
+        
         
        
  
-
+/*
         // Lindsey's test of Deck constructors 
         Deck deckL = new Deck();
         System.out.println(deckL.toString());
         
-   
+   */
         
     }
 
