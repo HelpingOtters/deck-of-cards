@@ -40,17 +40,24 @@ public class Deck
    public Deck(int numPacks)
    {
       allocateMasterPack();
+
+      // Create the cards array with the correct number of packs
       cards = new Card[numPacks * ONE_PACK];
+      
+      // Variable to keep track of the current index in masterPack 
       int masterCounter = 0;
       
-      for(int i = 0; i < cards.length; i++)
+      // Populate the card array with Card objects, copying values from masterPack
+      for(int i = 0; i < cards.length; i++, masterCounter++)
       {
-         cards[i] = masterPack[masterCounter];
-         
+         // Create a new Card Object, copying it from the masterPack
+         cards[i] = new Card(masterPack[masterCounter]);
+
+         // If the cards array is more than one pack, reset the index of masterPack 
+         // in order to loop through it again
          if(masterCounter == ONE_PACK - 1) 
-            masterCounter = 0;
+            masterCounter = -1;
       }
-      
    }
 
    /*
@@ -59,10 +66,15 @@ public class Deck
    public Deck() 
    {
       allocateMasterPack();
+
+      // Create the cards array using one pack of cards
+      cards = new Card[ONE_PACK];
       
+      // Loop through the cards array, populating it with Cards
       for(int i = 0; i < cards.length; i++)
       {
-         cards[i] = masterPack[i];
+         // Create a new Card Object, copying it from the masterPack
+         cards[i] = new Card(masterPack[i]);
       }
       
    }
@@ -124,16 +136,18 @@ public class Deck
       char[] value = 
          {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
      
-      
       Suit[] suits = 
          {Card.Suit.DIAMONDS, Card.Suit.SPADES, Card.Suit.HEARTS, Card.Suit.CLUBS};
       
       int curIndex = 0;
       
+      // Loop through the value array
       for(int x = 0; x < value.length; x++)
       { 
+         // Loop through the suits array
          for(int y = 0; y < suits.length; y++)
          {
+            // Create a new Card object with the correct suit and value
             masterPack[curIndex] = new Card(value[x], suits[y]);
             curIndex++;
          }

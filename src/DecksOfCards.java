@@ -77,7 +77,7 @@ public class DecksOfCards
  
 
         // Lindsey's test of Deck constructors 
-        Deck deckL = new Deck(1);
+        Deck deckL = new Deck();
         System.out.println(deckL.toString());
         
    
