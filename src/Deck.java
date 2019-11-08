@@ -15,10 +15,13 @@ import src.Card.Suit;
  * The structure for a deck of cards
  */
 
+<<<<<<< HEAD
 // added some changes for testing
 //added some changes as well 
 
 
+=======
+>>>>>>> e0ead8fbc80c81bddc545b27dd1288d2b0b85a37
 public class Deck 
 {
    // public static variable for maximum cards in a deck
@@ -34,46 +37,62 @@ public class Deck
    private int topCard;
 
    /**
-    * Constructor that takes number of packs and populates the masterPack array
-    * as well as the card array 
+    * Constructor that takes in a number of packs as an argument and then creates a deck 
+    * of cards with that many pakcs of cards (52 x numPacks)
     * @param numPacks
     */
    public Deck(int numPacks)
    {
       allocateMasterPack();
+
+      // Create the cards array with 52 x numPacks cards
       cards = new Card[numPacks * ONE_PACK];
-      int masterCounter = 0;
-      
-      for(int i = 0; i < cards.length; i++)
-      {
-         cards[i] = masterPack[masterCounter];
-         
-         if(masterCounter == ONE_PACK - 1) 
-            masterCounter = 0;
-      }
-      
+
+      // populate the cards array
+      init(numPacks);
    }
 
    /*
-    * Overloaded no argument constructor 
+    * Overloaded no argument constructor that creates a pack of cards using 
+    * just one deck
     */
    public Deck() 
    {
       allocateMasterPack();
+
+      // Create the cards array using one pack of cards
+      cards = new Card[ONE_PACK];
       
+      // Loop through the cards array, populating it with Cards
       for(int i = 0; i < cards.length; i++)
       {
-         cards[i] = masterPack[i];
+         // Create a new Card Object, copying it from the masterPack
+         cards[i] = new Card(masterPack[i]);
       }
-      
    }
 
+   /**
+    * Method to re-populate cards[] with 52 x numPacks cards.
+    * @param numPacks
+    */
    public void init(int numPacks) 
    {
-      /* re-populate cards[] with the standard 52 × numPacks cards. We should 
-       * not repopulate the static array, masterPack[], since that was done 
-       * once, in the (first-invoked) constructor and  never changes.
-       */
+      // Variable to keep track of the current index in masterPack 
+      int masterCounter = 0;
+      
+      // Populate the card array with Card objects, copying values from masterPack
+      for(int i = 0; i < cards.length; i++, masterCounter++)
+      {
+         // Create a new Card Object, copying it from the masterPack
+         cards[i] = new Card(masterPack[masterCounter]);
+
+         // If the cards array is more than one pack, reset the index of masterPack 
+         // in order to loop through it again
+         if(masterCounter == ONE_PACK - 1) 
+            masterCounter = -1;
+      }
+      
+
    }
    // made this void for now
    /* mixes up the cards with the help of the standard random number 
@@ -125,16 +144,18 @@ public class Deck
       char[] value = 
          {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
      
-      
       Suit[] suits = 
          {Card.Suit.DIAMONDS, Card.Suit.SPADES, Card.Suit.HEARTS, Card.Suit.CLUBS};
       
       int curIndex = 0;
       
+      // Loop through the value array
       for(int x = 0; x < value.length; x++)
       { 
+         // Loop through the suits array
          for(int y = 0; y < suits.length; y++)
          {
+            // Create a new Card object with the correct suit and value
             masterPack[curIndex] = new Card(value[x], suits[y]);
             curIndex++;
          }
