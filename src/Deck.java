@@ -158,12 +158,32 @@ public class Deck
 
    }
 
+   /**
+    * Accessor for an individual card. Returns a card or
+    * returns a card with an error flag.
+    *@return the card 
+    *@return a card with with an error flag
+    */
    public Card inspectCard(int k)
    {
-      return null;
-      /* Accessor for an individual card.  Returns a card with 
-       * errorFlag = true if k is bad.
-       */
+      Card inspectCard = null;
+      boolean errorFlag = true;
+      //checks if the card is valid
+      if(cards[k] != null)
+      {
+         errorFlag = false;
+         //if the card is valid it is assigned to the variable
+         inspectCard = cards[k];
+         //returns the card
+         return inspectCard;
+      }
+      //returns a null card
+      else
+      {
+         errorFlag = true;
+         //inspectCard = errorFlag;
+         return inspectCard;
+      }
    }
 
    private static void allocateMasterPack()
