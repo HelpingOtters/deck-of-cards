@@ -37,7 +37,7 @@ public class Card
      // Copy Constructor
     public Card (Card otherCard)
     {
-      set(otherCard.value, otherCard.suit);
+        set(otherCard.value, otherCard.suit);
     }
 
      //Accessors 
