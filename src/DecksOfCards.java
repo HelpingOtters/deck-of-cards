@@ -83,8 +83,12 @@ public class DecksOfCards
         deck.dealCard();
         System.out.println("numOfCards: " + deck.getTopCard());
         //System.out.println(deck.toString());
-        ///////////
-        for(int x = 0; x < 100; x++)
+        ///////////*/
+        Deck deck = new Deck();
+        System.out.println("DECK: " + deck.toString());
+        deck.shuffle();
+        System.out.println("Shuffled DECK: " + deck.toString());
+        for(int x = 0; x < 1; x++)
         {
             System.out.println("BEFORE numOfCards: " + deck.getTopCard());
             System.out.println(deck.dealCard() + "\n");
@@ -92,7 +96,7 @@ public class DecksOfCards
         }
         System.out.println("Below is how the deck looks like after dealing");
         System.out.println(deck.toString());
-        */
+        //*/
 
         
         
