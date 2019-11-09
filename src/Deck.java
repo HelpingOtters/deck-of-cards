@@ -166,15 +166,27 @@ public class Deck
     */
    public Card inspectCard(int k)
    {
-      // Lindsey's attempt...
-      Card returnCard = cards[k];
+      Card returnCard;
+
+      // If k is out of bounds, return a card with an error flag
+      if(k < 0 || k >= topCard)
+      {
+         // 'E' is not a valid argument, so this card will have errorFlag = true
+         returnCard = new Card('E', Card.Suit.CLUBS);
+      }
+      else 
+      {
+         returnCard = cards[k];
+      }
+
+      return returnCard;
+      
 
       // Check if this cards errorFlag variable is true
       if(returnCard.getErrorFlag())
       {
-         // Print out an error message if it is
-         System.out.println("** illegal **");
-         return returnCard;
+         // Return a
+         return null;
       } 
       // Otherwise, return the good card 
       else
@@ -183,7 +195,7 @@ public class Deck
       }
 
       // Dan's code 
-      
+
       Card inspectCard = null;
       boolean errorFlag = true;
       //checks if the card is valid
