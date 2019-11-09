@@ -166,6 +166,19 @@ public class Deck
     */
    public Card inspectCard(int k)
    {
+      // Lindsey's attempt...
+      Card returnCard = cards[k];
+
+      if(returnCard.getErrorFlag())
+      {
+         System.out.println("** illegal **");
+         return returnCard;
+      } 
+      else
+      {
+         return returnCard;
+      }
+
       Card inspectCard = null;
       boolean errorFlag = true;
       //checks if the card is valid
