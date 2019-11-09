@@ -96,18 +96,6 @@ public class DecksOfCards
         }
         System.out.println("Below is how the deck looks like after dealing");
         System.out.println(deck.toString());
-        //*/
-
-        
-        
-       
- 
-/*
-        // Lindsey's test of Deck constructors 
-        Deck deckL = new Deck();
-        System.out.println(deckL.toString());
-        
-   */
         
     }
 

@@ -16,18 +16,14 @@ import src.Card.Suit;
  * The structure for a deck of cards
  */
 
-// added some changes for testing
-//added some changes as well 
-
-
 public class Deck 
 {
-   // public static variable for maximum cards in a deck
-   public static final int MAX_CARDS = 312; // 6 x 52
-   public static final int ONE_PACK = 52;
-   public static boolean beenHereBefore = false;
+   // public static variables 
+   public static final int MAX_CARDS = 312; // 6 packs x 52 cards
+   public static final int ONE_PACK = 52; // Standard 52 card deck
+   public static boolean beenHereBefore = false; 
 
-   // private static variable for master pack of cards
+   // private static variable for the master pack of cards
    private static Card[] masterPack = new Card[ONE_PACK];
 
    // private member data
@@ -36,13 +32,13 @@ public class Deck
 
    /**
     * Constructor that takes in a number of packs as an argument and then creates a deck 
-    * of cards with that many pakcs of cards (52 x numPacks)
+    * of cards with that many packs of cards (52 x numPacks)
     * @param numPacks
     */
    public Deck(int numPacks)
    {
       // If numPacks is too large, automatically make it 6 packs
-      if((numPacks * ONE_PACK) >= MAX_CARDS)
+      if((numPacks * ONE_PACK) > MAX_CARDS)
          numPacks = 6;
 
       allocateMasterPack();
@@ -50,7 +46,10 @@ public class Deck
       // Create the cards array with 52 x numPacks cards
       cards = new Card[numPacks * ONE_PACK];
 
-      // populate the cards array
+      // Initialize the last index of the array to be the top card of the deck  
+      topCard = cards.length - 1;
+
+      // populate the cards in the deck 
       init(numPacks);
    }
 
@@ -64,6 +63,9 @@ public class Deck
 
       // Create the cards array using one pack of cards
       cards = new Card[ONE_PACK];
+
+      // Initialize the last index of the array to be the top card of the deck  
+      topCard = cards.length - 1;
       
       // Loop through the cards array, populating it with Cards
       for(int i = 0; i < cards.length; i++)
@@ -94,6 +96,7 @@ public class Deck
             masterCounter = -1;
       }
    }
+   
    /**
     * Shuffles the deck of Cards
     */
