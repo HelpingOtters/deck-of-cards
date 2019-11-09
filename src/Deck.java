@@ -169,16 +169,21 @@ public class Deck
       // Lindsey's attempt...
       Card returnCard = cards[k];
 
+      // Check if this cards errorFlag variable is true
       if(returnCard.getErrorFlag())
       {
+         // Print out an error message if it is
          System.out.println("** illegal **");
          return returnCard;
       } 
+      // Otherwise, return the good card 
       else
       {
          return returnCard;
       }
 
+      // Dan's code 
+      
       Card inspectCard = null;
       boolean errorFlag = true;
       //checks if the card is valid
