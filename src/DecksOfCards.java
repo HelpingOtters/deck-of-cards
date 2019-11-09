@@ -19,7 +19,6 @@ public class DecksOfCards
 
     public static void main(String[] arg) {
         // Phase One CARD CLASS
-       
         /*
         System.out.println(CARD_TESTER);
         Card card1 = new Card();
@@ -64,26 +63,24 @@ public class DecksOfCards
 
         System.out.println(hand1.toString());
 
-        //Phase 3 Deck Class
-    */   
-    /* 
-        //dan's test of shuffle method. OK to delete
-        Deck deck = new Deck(1);
-        //System.out.println(deck.toString());
-        deck.shuffle();
-        System.out.println("The original deck");
-        System.out.println(deck.toString());
+        */
+
+        // Phase 3 Deck Class
+        /**
+         * Declare a deck containing two packs of cards. Do not shuffle.  Deal all the cards in a loop until the deck is empty (dealt directly to the display/screen, not to any Hand objects just yet).  Display each card as it comes off the deck.  Next, reset the deck by initializing it again (to the same two packs).  Shuffle the deck this time, and re-deal to the screen in a loop again. Notice that the cards are now coming off in a random order.
+
+Repeat this double deal, unshuffled, then shuffled, but this time using a single pack deck.
+         */
+
+         Deck deck2Pack = new Deck(2);
+         
+        
+
+
+
+
+        
         /*
-        System.out.println("numOfCards: " + deck.getTopCard());
-        System.out.println(deck.toString());
-        deck.dealCard();
-        System.out.println("numOfCards: " + deck.getTopCard());
-        System.out.println("------------------round two-----------------");
-        System.out.println("numOfCards: " + deck.getTopCard());
-        deck.dealCard();
-        System.out.println("numOfCards: " + deck.getTopCard());
-        //System.out.println(deck.toString());
-        ///////////*/
         Deck deck = new Deck();
         System.out.println("DECK: " + deck.toString());
         deck.shuffle();
@@ -96,7 +93,7 @@ public class DecksOfCards
         }
         System.out.println("Below is how the deck looks like after dealing");
         System.out.println(deck.toString());
-        
+        */
     }
 
 }

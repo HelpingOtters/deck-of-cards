@@ -47,7 +47,7 @@ public class Deck
       cards = new Card[numPacks * ONE_PACK];
 
       // Initialize the last index of the array to be the top card of the deck  
-      topCard = cards.length - 1;
+      topCard = cards.length;
 
       // populate the cards in the deck 
       init(numPacks);
