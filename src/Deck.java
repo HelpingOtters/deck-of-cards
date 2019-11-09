@@ -134,7 +134,7 @@ public class Deck
          //I used the last card in the deck because
          //a dealer deals the last card on the deck
          //when the deck is face-down
-         dealCard = cards[topCard-1];
+         dealCard = new Card(cards[topCard-1]);
          //removes the topcard from the deck
          cards[topCard-1] = null;
          return dealCard;
