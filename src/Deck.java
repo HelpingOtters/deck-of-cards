@@ -161,8 +161,8 @@ public class Deck
    /**
     * Accessor for an individual card. Returns a card or
     * returns a card with an error flag.
-    *@return the card 
-    *@return a card with with an error flag
+    * @return the card at index k
+    * @return a card with with an error flag
     */
    public Card inspectCard(int k)
    {
@@ -171,49 +171,16 @@ public class Deck
       // If k is out of bounds, return a card with an error flag
       if(k < 0 || k >= topCard)
       {
-         // 'E' is not a valid argument, so this card will have errorFlag = true
+         // Create an invalid card with errorFlag = true
          returnCard = new Card('E', Card.Suit.CLUBS);
       }
       else 
       {
+         // Otherwise return the card at k index
          returnCard = cards[k];
       }
-
       return returnCard;
-      
 
-      // Check if this cards errorFlag variable is true
-      if(returnCard.getErrorFlag())
-      {
-         // Return a
-         return null;
-      } 
-      // Otherwise, return the good card 
-      else
-      {
-         return returnCard;
-      }
-
-      // Dan's code 
-
-      Card inspectCard = null;
-      boolean errorFlag = true;
-      //checks if the card is valid
-      if(cards[k] != null)
-      {
-         errorFlag = false;
-         //if the card is valid it is assigned to the variable
-         inspectCard = cards[k];
-         //returns the card
-         return inspectCard;
-      }
-      //returns a null card
-      else
-      {
-         errorFlag = true;
-         //inspectCard = errorFlag;
-         return inspectCard;
-      }
    }
 
    private static void allocateMasterPack()
