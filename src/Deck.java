@@ -131,6 +131,9 @@ public class Deck
       if(topCard > 0)
       {
          //assings the top card to the dealCard variable
+         //I used the last card in the deck because
+         //a dealer deals the last card on the deck
+         //when the deck is face-down
          dealCard = cards[topCard-1];
          //removes the topcard from the deck
          cards[topCard-1] = null;
