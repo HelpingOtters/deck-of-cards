@@ -25,7 +25,7 @@ public class DecksAndHands
          }
       }
 
-      //unshuffled deck 
+      //unshuffled deal 
       Deck d1 = new Deck(1);
       Hand[] myHands = new Hand[numHands];
       int thisCard = 0;
@@ -48,10 +48,33 @@ public class DecksAndHands
       }
       for (int thisHand = 0; thisHand < numHands; ++thisHand)
       {
-         System.out.println(thisHand + ") " + myHands[thisHand].toString());
+         System.out.println((thisHand+1) + ") " + myHands[thisHand].toString());
          myHands[thisHand].resetHand();
       }
       System.out.println();
+
+      //Shuffled Deal
+      Deck d2 = new Deck(1); 
+      d2.shuffle();
+      thisCard = 0;
+      System.out.println("Here are our hands from a shuffled deck: ");
+      while (d2.inspectCard(thisCard).getErrorFlag() == false)
+      {
+         for(int thisHand = 0; thisHand < numHands; ++thisHand)
+         {
+            if(thisCard > 51)
+            {
+               break;
+            }
+            myHands[thisHand].takeCard(d2.dealCard());
+            ++thisCard;
+         }
+      }
+      for(int thisHand = 0; thisHand < numHands; ++thisHand)
+      {
+         System.out.println((thisHand+1) + ") " + myHands[thisHand].toString());
+      }
+      keyboard.close();
 
    }
 
