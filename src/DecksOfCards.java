@@ -85,7 +85,7 @@ public class DecksOfCards
               System.out.println();
         }         
         
-        System.out.println('\n');
+        System.out.println();
         //refills the deck
         deck2Pack.init(twoPacks);
         //shuffles the deck

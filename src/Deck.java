@@ -214,13 +214,13 @@ public class Deck
    /**
     * Returns a String representation of the deck.
     * @return returns a String representation of the deck
-    */
+    *
    public String toString()
    {
       String deck = "";
       final int MAX_LINE_LENGTH = 16;
       
-      for(int x = 0; x < cards.length; x++)
+      for(int x = 1; x < cards.length + 1; x++)
       {
          //System.out.println(deck.length());
          if(cards[x] != null) 
@@ -233,6 +233,7 @@ public class Deck
       }      
       return deck;
    }
+   */
    
 
 
