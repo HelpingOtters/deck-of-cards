@@ -28,6 +28,7 @@ public class DecksAndHands
       }
 
       // Step 3: Display all the hands
+      System.out.println("Here are your hands, from an unshuffled deck: ");
       for(int i = 0; i < hands.length; i++)
       {
          System.out.println(hands[i]);
@@ -37,7 +38,8 @@ public class DecksAndHands
 
       // Step 5: Shuffle the deck and deal cards again
 
-      // Step 6: Display all the hands again    
+      // Step 6: Display all the hands again
+      System.out.println("Here are your hands, from a shuffled deck: ");    
 
    }
 
