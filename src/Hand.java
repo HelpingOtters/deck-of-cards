@@ -137,6 +137,11 @@ public class Hand
       return false;
    }
    
+   /**
+    * 
+    * @return If there are cards in the hand, return the last card in the hand
+    *         otherwise return a null card
+    */
    public Card playCard()
    {
       if(numCards > 0)
