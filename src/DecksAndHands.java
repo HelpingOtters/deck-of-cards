@@ -7,8 +7,6 @@ import java.util.Scanner;
  */
 public class DecksAndHands
 {
-   // Create a Scanner object to read in user input
-   private static Scanner keyboard = new Scanner(System.in);
    public static void main(String[] args)
    {
       int numHands = getUserInput();
@@ -64,12 +62,24 @@ public class DecksAndHands
    */
    private static int getUserInput()
    {
-      // this class gets a valid input from the user and returns it
-      // Prompt user to start the game with a certain number of hands
-      System.out.println("How many hands would you like? (1 - 10): ");
+      Scanner keyboard = new Scanner(System.in);
+      boolean invalidInput = false;
+      int numHands;
+      
+      do
+      {
+         System.out.println("How many hands would you like? (1 - 10): ");
 
-      int numHands = keyboard.nextInt();
+         // Retrieve the user's input
+         numHands = keyboard.nextInt();
+         
+         // Check if they entered invalid input (less than 1 or greater than 10)
+         if(numHands < 1 || numHands > 10)
+            invalidInput = true;
+      }
+      while(invalidInput); // continue loop until user's input is valid 
 
+      keyboard.close();
       return numHands;
    }
 
