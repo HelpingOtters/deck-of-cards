@@ -19,7 +19,6 @@ public class DecksOfCards
 
     public static void main(String[] arg) {
         // Phase One CARD CLASS
-       
         /*
         System.out.println(CARD_TESTER);
         Card card1 = new Card();
@@ -64,25 +63,66 @@ public class DecksOfCards
 
         System.out.println(hand1.toString());
 
-        //Phase 3 Deck Class
-        
-        //dan's test of shuffle method. OK to delete
-        Deck deck = new Deck(1);
-        System.out.println(deck.toString());
-        deck.shuffle();
-        System.out.println(deck.toString());
-        deck.dealCard();
         */
-        
-       
- 
 
-        // Lindsey's test of Deck constructors 
-        Deck deckL = new Deck();
-        System.out.println(deckL.toString());
+        // Phase 3 Deck Class
+        /**
+         * Declare a deck containing two packs of cards. Do not shuffle.  Deal all the cards in a loop until the deck is empty 
+         * (dealt directly to the display/screen, not to any Hand objects just yet).  Display each card as it comes off the deck. 
+         * Next, reset the deck by initializing it again (to the same two packs).  
+         * Shuffle the deck this time, and re-deal to the screen in a loop again. Notice that the cards are now coming off in a random order.
+         * Repeat this double deal, unshuffled, then shuffled, but this time using a single pack deck.
+         */
+        System.out.println("\n--------------------------------------------------------");
+        int twoPacks = 2;
+        //creats a deck of 104 cards (two packs)
+        Deck deck2Pack = new Deck(twoPacks);
+        //prints out the dealt cards in an unshuffled deck
+        for(int x = 1; x < deck2Pack.getTopCard() + 1; ++x)
+        {
+           System.out.print(deck2Pack.dealCard() + " / ");
+           if((x % 4) == 0)
+              System.out.println();
+        }         
         
-   
+        System.out.println();
+        //refills the deck
+        deck2Pack.init(twoPacks);
+        //shuffles the deck
+        deck2Pack.shuffle();
+        //prints out the dealt cars of a shuffled deck
+        for(int x = 1; x < deck2Pack.getTopCard() + 1; ++x)
+        {
+           System.out.print(deck2Pack.dealCard() + " / ");
+           if((x % 4) == 0)
+              System.out.println();
+        }             
+        System.out.println("\n--------------------------------------------------------"); 
+        //creats a deck of 52 cards
+        Deck deck1Pack = new Deck();
+        //prints out the dealt cards of an unshuffled deck
+        for(int x = 1; x < deck1Pack.getTopCard() + 1; ++x)
+        {
+            System.out.print(deck1Pack.dealCard() + " / ");
+            if((x % 4) == 0)
+              System.out.println();
+        }         
         
+        System.out.println("\n");
+
+        int onePack = 1;
+        //refils the deck with one set of 52 cards
+        deck1Pack.init(onePack);
+        //shuffles the deck
+        deck1Pack.shuffle();
+        //prints out the dealt cards of the shuffled deck
+        for(int x = 1; x < deck1Pack.getTopCard() + 1; ++x)
+        {
+            System.out.print(deck1Pack.dealCard() + " / ");
+            if((x % 4) == 0)
+              System.out.println();
+        }     
+
     }
 
 }
