@@ -130,7 +130,6 @@ public class Deck
      */
    public Card dealCard()
    {
-      //int topCard = getTopCard();
       Card dealCard;
       //checks if there are cards in the deck
       if(topCard > 0)
@@ -139,7 +138,8 @@ public class Deck
          //I used the last card in the deck because
          //a dealer deals the last card on the deck
          //when the deck is face-down
-         dealCard = cards[getTopCard()-1];
+         //dealCard = cards[getTopCard()-1];
+         dealCard = inspectCard(getTopCard() - 1);
          //removes the topcard from the deck
          cards[getTopCard()-1] = null;
          //decreases card count

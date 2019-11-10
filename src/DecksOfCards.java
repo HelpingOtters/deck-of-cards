@@ -75,10 +75,11 @@ public class DecksOfCards
          */
         System.out.println("\n--------------------------------------------------------");
         int twoPacks = 2;
+        int twoPacksOfCards = 104;
         //creats a deck of 104 cards (two packs)
         Deck deck2Pack = new Deck(twoPacks);
         //prints out the dealt cards in an unshuffled deck
-        for(int x = 1; x < deck2Pack.getTopCard() + 1; ++x)
+        for(int x = 1; x < twoPacksOfCards + 1; ++x)
         {
            System.out.print(deck2Pack.dealCard() + " / ");
            if((x % 4) == 0)
@@ -91,7 +92,7 @@ public class DecksOfCards
         //shuffles the deck
         deck2Pack.shuffle();
         //prints out the dealt cars of a shuffled deck
-        for(int x = 1; x < deck2Pack.getTopCard() + 1; ++x)
+        for(int x = 1; x < twoPacksOfCards + 1; ++x)
         {
            System.out.print(deck2Pack.dealCard() + " / ");
            if((x % 4) == 0)
@@ -100,8 +101,9 @@ public class DecksOfCards
         System.out.println("\n--------------------------------------------------------"); 
         //creats a deck of 52 cards
         Deck deck1Pack = new Deck();
+        int onePackOfCards = 52;
         //prints out the dealt cards of an unshuffled deck
-        for(int x = 1; x < deck1Pack.getTopCard() + 1; ++x)
+        for(int x = 1; x < onePackOfCards + 1; ++x)
         {
             System.out.print(deck1Pack.dealCard() + " / ");
             if((x % 4) == 0)
@@ -116,7 +118,7 @@ public class DecksOfCards
         //shuffles the deck
         deck1Pack.shuffle();
         //prints out the dealt cards of the shuffled deck
-        for(int x = 1; x < deck1Pack.getTopCard() + 1; ++x)
+        for(int x = 1; x < onePackOfCards + 1; ++x)
         {
             System.out.print(deck1Pack.dealCard() + " / ");
             if((x % 4) == 0)
