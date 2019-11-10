@@ -14,7 +14,7 @@ import src.Card.Suit;
  * @version 11/8/19
  * 
  * The structure for a deck of cards
- */s
+ */
 
 public class Deck 
 {
