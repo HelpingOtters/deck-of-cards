@@ -4,10 +4,11 @@ package src;
  * 
  * Card.java
  * 
- * @author Ricardo Barbosa Max Halbert
+ * @author Ricardo Barbosa 
+ * @author Max Halbert
  * @version November 6, 2019
  * 
- *          The structure for the Card class
+ * The structure for the Card class
  */
 
 public class Card
