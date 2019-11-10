@@ -151,15 +151,15 @@ public class Hand
    public String toString()
    {
       String myHand = "";
-      for(int i =0; i < numCards; i++)
+      if(numCards > 0)
       {
-         if(i == numCards - 1)
-            myHand += myCards[i];
-         else
-            myHand += myCards[i] + ", ";
-         
+         myHand += myCards[0];
+         for(int i = 1 ; i < numCards; i++)
+         {
+            myHand += ", " + myCards[i];
+         }
       }
-      return "\nHand = (" + myHand + " )";
+      return myHand;
    }
    
    public int getNumCards()
