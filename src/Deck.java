@@ -65,7 +65,7 @@ public class Deck
       cards = new Card[ONE_PACK];
 
       // Initialize the last index of the array to be the top card of the deck  
-      topCard = cards.length - 1;
+      topCard = cards.length;
       
       // Loop through the cards array, populating it with Cards
       for(int i = 0; i < cards.length; i++)
@@ -83,6 +83,8 @@ public class Deck
    {
       // Variable to keep track of the current index in masterPack 
       int masterCounter = 0;
+      // Initialize the last index of the array to be the top card of the deck  
+      topCard = cards.length;
       
       // Populate the card array with Card objects, copying values from masterPack
       for(int i = 0; i < cards.length; i++, masterCounter++)
@@ -128,7 +130,7 @@ public class Deck
      */
    public Card dealCard()
    {
-      int topCard = getTopCard();
+      //int topCard = getTopCard();
       Card dealCard;
       //checks if there are cards in the deck
       if(topCard > 0)
@@ -137,9 +139,11 @@ public class Deck
          //I used the last card in the deck because
          //a dealer deals the last card on the deck
          //when the deck is face-down
-         dealCard = cards[topCard-1];
+         dealCard = cards[getTopCard()-1];
          //removes the topcard from the deck
-         cards[topCard-1] = null;
+         cards[getTopCard()-1] = null;
+         //decreases card count
+         topCard--;
          return dealCard;
       }
       //returns null if no more cards
@@ -147,21 +151,12 @@ public class Deck
    }
 
    /**
-    * Counts the number of cards in the deck
+    * Returns the number of cards in a deck.
     * @return the number of cards in the deck
     */
    public int getTopCard()
    {
-      topCard = 0;
-      //traverses the array and counts all non-null elements
-      for(int x = 0; x < cards.length; x++)
-      {
-         if(cards[x] != null)
-         topCard++;
-      }
-      //returns the number of cards
       return topCard;
-
    }
 
    /**
@@ -223,19 +218,18 @@ public class Deck
    public String toString()
    {
       String deck = "";
+      final int MAX_LINE_LENGTH = 16;
       
       for(int x = 0; x < cards.length; x++)
       {
-         
+         //System.out.println(deck.length());
          if(cards[x] != null) 
          {
-            deck += "Card #"; 
-            deck += x;
-            deck += " ";
-            deck += cards[x];
-            deck += "\n";
+            deck = deck + cards[x] + " / ";
          }  
-    
+         if((deck.length() % MAX_LINE_LENGTH) == 0)
+            deck += "\n";
+
       }      
       return deck;
    }
