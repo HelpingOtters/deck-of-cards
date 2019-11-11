@@ -102,24 +102,24 @@ public class DecksAndHands
       }
 
       //unshuffled deal 
-      Deck d1 = new Deck(2);
+      Deck d1 = new Deck();
       Hand[] myHands = new Hand[numHands];
-      int thisCard = 0;
+      int thisCard = d1.getTopCard();
       for (int thisHand = 0; thisHand < numHands; ++thisHand)
       {
          myHands[thisHand] = new Hand();
       }
       System.out.println("Here are our hands, from unshuffled deck: ");
-      while (d1.inspectCard(thisCard).getErrorFlag() == false)
+      while (d1.inspectCard(thisCard-1).getErrorFlag() == false)
       {
          for (int thisHand = 0; thisHand < numHands; ++thisHand)
          {
-            if (thisCard > 51)
+            if (thisCard == 0)
             {
                break;
             }
             myHands[thisHand].takeCard(d1.dealCard());
-            ++thisCard;
+            --thisCard;
          }
       }
       for (int thisHand = 0; thisHand < numHands; ++thisHand)
@@ -130,22 +130,22 @@ public class DecksAndHands
       System.out.println();
 
       //Reset the deck
-      //d1.init(1); 
-      //Shuffled Deal
-      //d1.shuffle();
-      Deck d2 = new Deck(2);
-      thisCard = 0;
+      d1.init(1); 
+      //Shuffled deck
+      d1.shuffle();
+
+      thisCard = d1.getTopCard();
       System.out.println("Here are our hands from a shuffled deck: ");
-      while (d2.inspectCard(thisCard).getErrorFlag() == false)
+      while (d1.inspectCard(thisCard-1).getErrorFlag() == false)
       {
          for(int thisHand = 0; thisHand < numHands; ++thisHand)
          {
-            if(thisCard > 51)
+            if(thisCard == 0)
             {
                break;
             }
-            myHands[thisHand].takeCard(d2.dealCard());
-            ++thisCard;
+            myHands[thisHand].takeCard(d1.dealCard());
+            --thisCard;
          }
       }
       for(int thisHand = 0; thisHand < numHands; ++thisHand)
