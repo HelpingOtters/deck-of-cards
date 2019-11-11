@@ -49,10 +49,6 @@ public class Deck
        *  }
        */
 
-      /*
-       * ?????????????? Max ????????? 
-       * Should we move allocateMasterPack() inside the init(int numPack)
-       */
       allocateMasterPack();
 
       // Create the cards array with 52 x numPacks cards
@@ -71,10 +67,7 @@ public class Deck
     */
    public Deck() 
    {
-      /*
-       * ?????????????? Max ????????? 
-       * Should we move allocateMasterPack() inside the init(int numPack)
-       */
+      
       allocateMasterPack();
 
       // Create the cards array using one pack of cards
@@ -86,8 +79,8 @@ public class Deck
       /*
        * ?????????????? Max ????????? 
        * Should we replace the following loop with
-       * a call init(1) like the above constructor So any things to change when
-       * we create the array, we only need to change in the init(int numPack)
+       * a call init(1) like the above constructor So any things need to change when
+       * we repopulate the array, we only need to change in the init(int numPack)
        * method
        */
       // Loop through the cards array, populating it with Cards
@@ -104,11 +97,6 @@ public class Deck
     */
    public void init(int numPacks) 
    {
-      /*
-       * ?????????????? Max ????????? 
-       * we can call allocateMasterPack() here
-       * since both constructor will call this method
-       */
       
       // Variable to keep track of the current index in masterPack 
       int masterCounter = 0;
