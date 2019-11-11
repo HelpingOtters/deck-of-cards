@@ -44,7 +44,7 @@ public class DecksAndHands
               System.out.println();
         }             
         System.out.println("\n--------------------------------------------------------"); 
-        //creats a deck of 52 cards
+        //creates a deck of 52 cards
         Deck deck1Pack = new Deck();
         //prints out the dealt cards of an unshuffled deck
         for(int x = 1; x < deck1Pack.getTopCard() + 1; ++x)
@@ -101,7 +101,7 @@ public class DecksAndHands
       }
 
       //unshuffled deal 
-      Deck d1 = new Deck(2);
+      Deck d1 = new Deck(1);
       Hand[] myHands = new Hand[numHands];
       int thisCard = 0;
       for (int thisHand = 0; thisHand < numHands; ++thisHand)
@@ -129,7 +129,7 @@ public class DecksAndHands
       System.out.println();
 
       //Shuffled Deal
-      Deck d2 = new Deck(2); 
+      Deck d2 = new Deck(1); 
       d2.shuffle();
       thisCard = 0;
       System.out.println("Here are our hands from a shuffled deck: ");
