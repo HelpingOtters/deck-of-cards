@@ -51,11 +51,9 @@ public class DecksAndHands
       Scanner keyboard = new Scanner(System.in);
       boolean invalidInput = true;
       int numHands;
-      
       do 
       {
          System.out.println("How many hands would you like? (1 - 10): ");
-
          numHands = keyboard.nextInt();  // Retrieve the user's input
          
          // Check if they entered valid input (1 - 10)
@@ -68,21 +66,25 @@ public class DecksAndHands
       return numHands;
    }
    
-      /*
-    * Private helper method to create an array of Hand objects
-    */
-    private static Hand[] createHands(int numHands) 
-    {
-       // Create a Hand array of length numHands
-       Hand[] hands = new Hand[numHands];
+   /*
+   * Private helper method to create an array of Hand objects
+   */
+   private static Hand[] createHands(int numHands) 
+   {
+      // Create a Hand array of length numHands
+      Hand[] hands = new Hand[numHands];
  
-       // Populate the array with Hand object
-       for(int i = 0; i < numHands; i++)
-          hands[i] = new Hand();
+      // Populate the array with Hand object
+      for(int i = 0; i < numHands; i++)
+         hands[i] = new Hand();
        
       return hands;
-    }
+   }
 
+   /*
+   * Private helper method to deal one card at a time from the singleDeck 
+   * to each Hand object
+   */
    private static void dealCards(Deck singleDeck, Hand[] hands) 
    {
       while(singleDeck.getTopCard() > 0) // keep dealing until there are no cards left
