@@ -65,21 +65,17 @@ public class DecksAndHands
    private static int getUserInput()
    {
       Scanner keyboard = new Scanner(System.in);
-      boolean invalidInput = false;
+      boolean invalidInput = true;
       int numHands;
       
-      // Continue asking the user for input until they enter a valid number
       do 
       {
          System.out.println("How many hands would you like? (1 - 10): ");
 
-         // Retrieve the user's input
-         numHands = keyboard.nextInt();
+         numHands = keyboard.nextInt();  // Retrieve the user's input
          
-         // Check if they entered invalid input (less than 1 or greater than 10)
-         if(numHands < 1 || numHands > 10)
-            invalidInput = true;
-         else 
+         // Check if they entered valid input (1 - 10)
+         if(numHands >= 1  && numHands <= 10)
             invalidInput = false;
       }
       while(invalidInput); // continue loop until user's input is valid 
