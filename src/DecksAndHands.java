@@ -26,7 +26,7 @@ public class DecksAndHands
       }
 
       //unshuffled deal 
-      Deck d1 = new Deck(1);
+      Deck d1 = new Deck(2);
       Hand[] myHands = new Hand[numHands];
       int thisCard = 0;
       for (int thisHand = 0; thisHand < numHands; ++thisHand)
@@ -54,7 +54,7 @@ public class DecksAndHands
       System.out.println();
 
       //Shuffled Deal
-      Deck d2 = new Deck(1); 
+      Deck d2 = new Deck(2); 
       d2.shuffle();
       thisCard = 0;
       System.out.println("Here are our hands from a shuffled deck: ");
