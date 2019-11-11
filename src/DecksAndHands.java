@@ -9,7 +9,9 @@ public class DecksAndHands
 {
    public static void main(String[] args)
    {
+      // Variable to hold the number of hands the user inputs
       int numHands = getUserInput();
+
       Deck singleDeck = new Deck();
       
       // Step 1: Create a Hands array to hold all the hand objects
@@ -66,7 +68,8 @@ public class DecksAndHands
       boolean invalidInput = false;
       int numHands;
       
-      do
+      // Continue asking the user for input until they enter a valid number
+      do 
       {
          System.out.println("How many hands would you like? (1 - 10): ");
 
@@ -76,6 +79,8 @@ public class DecksAndHands
          // Check if they entered invalid input (less than 1 or greater than 10)
          if(numHands < 1 || numHands > 10)
             invalidInput = true;
+         else 
+            invalidInput = false;
       }
       while(invalidInput); // continue loop until user's input is valid 
 
