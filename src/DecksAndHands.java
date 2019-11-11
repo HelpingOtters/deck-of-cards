@@ -102,7 +102,7 @@ public class DecksAndHands
       }
 
       //unshuffled deal 
-      Deck d1 = new Deck(1);
+      Deck d1 = new Deck(2);
       Hand[] myHands = new Hand[numHands];
       int thisCard = 0;
       for (int thisHand = 0; thisHand < numHands; ++thisHand)
@@ -130,12 +130,13 @@ public class DecksAndHands
       System.out.println();
 
       //Reset the deck
-      d1.init(1); 
+      //d1.init(1); 
       //Shuffled Deal
-      d1.shuffle();
+      //d1.shuffle();
+      Deck d2 = new Deck(2);
       thisCard = 0;
       System.out.println("Here are our hands from a shuffled deck: ");
-      while (d1.inspectCard(thisCard).getErrorFlag() == false)
+      while (d2.inspectCard(thisCard).getErrorFlag() == false)
       {
          for(int thisHand = 0; thisHand < numHands; ++thisHand)
          {
@@ -143,7 +144,7 @@ public class DecksAndHands
             {
                break;
             }
-            myHands[thisHand].takeCard(d1.dealCard());
+            myHands[thisHand].takeCard(d2.dealCard());
             ++thisCard;
          }
       }
