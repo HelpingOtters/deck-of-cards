@@ -100,7 +100,7 @@ package src;
  * take a card to the hand or play a card from the hand
  * 
  * @author  Max Halbert
- *          Ricardo Barbosa
+ * @author  Ricardo Barbosa
  *          
  * @version November 7, 2019
  * 
@@ -109,22 +109,36 @@ package src;
 public class Hand
 {
   
-   public static final  int MAX_CARDS = 52; // a hand can only have 52 cards maximum
+   // a hand can receive as many as a deck can give, so same value for both
+   public static final  int MAX_CARDS = Deck.MAX_CARDS; 
    
    private Card[] myCards;
    private int numCards;
    
+   /**
+    * Overload default constructor to initialize size of myCards array
+    */
    public Hand()
    {
       myCards = new Card[MAX_CARDS];
       numCards = 0;
    }
    
+   /**
+    * Remove all the cards from the hand
+    */
    public void resetHand()
    {
-      numCards = 0;  // the same myCards array will be reused for next hand
+      // Just set the numCards to zero means no more cards in hand
+      numCards = 0;  
    }
    
+   /**
+    * Adds a card to the next available position in the myCards array
+    * @param card that will be copy to the myCards array
+    * @return true if card is a valid card and myCards array have room
+    * @return false if card is invalid or myCards array is full
+    */
    public boolean takeCard(Card card)
    {
       if(numCards < MAX_CARDS && card != null && !card.getErrorFlag())
@@ -138,7 +152,7 @@ public class Hand
    }
    
    /**
-    * 
+    * Return the top card from a hand if any
     * @return If there are cards in the hand, return the last card in the hand
     *         otherwise return a null card
     */
@@ -167,15 +181,25 @@ public class Hand
       return myHand;
    }
    
+   /**
+    * Returns the number of cards left in a hand.
+    * @return the number of cards left in the hand
+    */
    public int getNumCards()
    {
       return numCards;
    }
    
+   /**
+    * Accessor for an individual card. Returns a card at index k if exist
+    * otherwise a card with an error flag.
+    * @return the card at index k if k is within bound
+    * @return a card with with an error flag if k is out of bound
+    */
    public Card inspectCard(int k)
    {
 
-      if (k >= 0 && k < numCards)  // assume valid k starts from 0
+      if (k >= 0 && k < numCards)  // check k is from 0 to numCards-1 inclusive
       {
          Card aCard = new Card(myCards[k]);  // prevent privacy leaks
          return aCard;

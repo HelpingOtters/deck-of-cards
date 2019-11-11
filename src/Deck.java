@@ -40,7 +40,19 @@ public class Deck
       // If numPacks is too large, automatically make it 6 packs
       if((numPacks * ONE_PACK) > MAX_CARDS)
          numPacks = 6;
+      
+      /*  ???????????? Max ??????????
+       *  Should we check whether numPacks is larger than zero as well
+       *  if (numPacks  < 1)
+       *  {
+       *    numPacks = 1; OR System.out.println("Fatal Error!"); System.exit(0);
+       *  }
+       */
 
+      /*
+       * ?????????????? Max ????????? 
+       * Should we move allocateMasterPack() inside the init(int numPack)
+       */
       allocateMasterPack();
 
       // Create the cards array with 52 x numPacks cards
@@ -56,6 +68,10 @@ public class Deck
     */
    public Deck() 
    {
+      /*
+       * ?????????????? Max ????????? 
+       * Should we move allocateMasterPack() inside the init(int numPack)
+       */
       allocateMasterPack();
 
       // Create the cards array using one pack of cards
@@ -64,6 +80,13 @@ public class Deck
       // Initialize the last index of the array to be the top card of the deck  
       topCard = cards.length;
       
+      /*
+       * ?????????????? Max ????????? 
+       * Should we replace the following loop with
+       * a call init(1) like the above constructor So any things to change when
+       * we create the array, we only need to change in the init(int numPack)
+       * method
+       */
       // Loop through the cards array, populating it with Cards
       for(int i = 0; i < cards.length; i++)
       {
@@ -78,6 +101,12 @@ public class Deck
     */
    public void init(int numPacks) 
    {
+      /*
+       * ?????????????? Max ????????? 
+       * we can call allocateMasterPack() here
+       * since both constructor will call this method
+       */
+      
       // Variable to keep track of the current index in masterPack 
       int masterCounter = 0;
       // Initialize the last index of the array to be the top card of the deck  
@@ -136,6 +165,12 @@ public class Deck
          //I used the last card in the deck because
          //a dealer deals the last card on the deck
          //when the deck is face-down
+         
+         /*
+          * ?????????????? Max ????????? 
+          * We can access topCard, I think we don't need to call getTopCard()
+          */
+         
          dealCard = cards[getTopCard()-1];
          //removes the topcard from the deck
          cards[getTopCard()-1] = null;
