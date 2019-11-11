@@ -13,16 +13,19 @@ package src;
 
 public class DecksAndHands
 {
+   public static final int ONE_PACK = 1;
+   public static final int TWO_PACK = 2;
    public static void main(String[] args)
    {
+
       Scanner keyboard = new Scanner(System.in);
        
         System.out.println("\n--------------------------------------------------------");
-        int twoPacks = 2;
         //creats a deck of 104 cards (two packs)
-        Deck deck2Pack = new Deck(twoPacks);
+        Deck deck2Pack = new Deck(TWO_PACK);
+        int twoPacksofCards = 104;
         //prints out the dealt cards in an unshuffled deck
-        for(int x = 1; x < deck2Pack.getTopCard() + 1; ++x)
+        for(int x = 1; x < twoPacksofCards + 1; ++x)
         {
            System.out.print(deck2Pack.dealCard() + " / ");
            if((x % 4) == 0)
@@ -31,11 +34,11 @@ public class DecksAndHands
         
         System.out.println();
         //refills the deck
-        deck2Pack.init(twoPacks);
+        deck2Pack.init(TWO_PACK);
         //shuffles the deck
         deck2Pack.shuffle();
         //prints out the dealt cars of a shuffled deck
-        for(int x = 1; x < deck2Pack.getTopCard() + 1; ++x)
+        for(int x = 1; x < twoPacksofCards + 1; ++x)
         {
            System.out.print(deck2Pack.dealCard() + " / ");
            if((x % 4) == 0)
@@ -44,8 +47,9 @@ public class DecksAndHands
         System.out.println("\n--------------------------------------------------------"); 
         //creats a deck of 52 cards
         Deck deck1Pack = new Deck();
+        int onePackOfCards = 52;
         //prints out the dealt cards of an unshuffled deck
-        for(int x = 1; x < deck1Pack.getTopCard() + 1; ++x)
+        for(int x = 1; x < onePackOfCards + 1; ++x)
         {
             System.out.print(deck1Pack.dealCard() + " / ");
             if((x % 4) == 0)
@@ -54,13 +58,12 @@ public class DecksAndHands
         
         System.out.println("\n");
 
-        int onePack = 1;
         //refils the deck with one set of 52 cards
-        deck1Pack.init(onePack);
+        deck1Pack.init(ONE_PACK);
         //shuffles the deck
         deck1Pack.shuffle();
         //prints out the dealt cards of the shuffled deck
-        for(int x = 1; x < deck1Pack.getTopCard() + 1; ++x)
+        for(int x = 1; x < onePackOfCards + 1; ++x)
         {
             System.out.print(deck1Pack.dealCard() + " / ");
             if((x % 4) == 0)
@@ -83,7 +86,7 @@ public class DecksAndHands
        * @author Ricardo Barbosa 
        * @version 11/10/2019
        ******************************************************/
-      
+     
       boolean validHand = false;
       int numHands = 0;
 
@@ -99,7 +102,7 @@ public class DecksAndHands
       }
 
       //unshuffled deal 
-      Deck d1 = new Deck(2);
+      Deck d1 = new Deck(1);
       Hand[] myHands = new Hand[numHands];
       int thisCard = 0;
       for (int thisHand = 0; thisHand < numHands; ++thisHand)
@@ -126,12 +129,13 @@ public class DecksAndHands
       }
       System.out.println();
 
+      //Reset the deck
+      d1.init(1); 
       //Shuffled Deal
-      Deck d2 = new Deck(2); 
-      d2.shuffle();
+      d1.shuffle();
       thisCard = 0;
       System.out.println("Here are our hands from a shuffled deck: ");
-      while (d2.inspectCard(thisCard).getErrorFlag() == false)
+      while (d1.inspectCard(thisCard).getErrorFlag() == false)
       {
          for(int thisHand = 0; thisHand < numHands; ++thisHand)
          {
@@ -139,7 +143,7 @@ public class DecksAndHands
             {
                break;
             }
-            myHands[thisHand].takeCard(d2.dealCard());
+            myHands[thisHand].takeCard(d1.dealCard());
             ++thisCard;
          }
       }
