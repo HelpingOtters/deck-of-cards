@@ -1,7 +1,12 @@
 package src;
 
 /**
- * DecksAndHands Tester Class 
+ * Phase 4 
+ * 
+ * @author Ricardo Barbosa 
+ * @author Lindsey Reynolds
+ * @author Dan Sedano 
+ * @author Max Halbert
  */
 
  import java.util.Scanner;
