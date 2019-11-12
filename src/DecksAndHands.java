@@ -1,11 +1,11 @@
 package src;
-/*********************************************************
+/************************************************************
  * Phase 3
  * @author Lindsey Reynolds
  * @author Dan Sedano 
  * @version 11/11/2019
- * 
-*********************************************************/
+ * Description: Testing the Deck class 
+************************************************************/
 
  import java.util.Scanner;
 
@@ -19,9 +19,10 @@ public class DecksAndHands
       Scanner keyboard = new Scanner(System.in);
        
         System.out.println("\n--------------------------------------------------------");
-        //creats a deck of 104 cards (two packs)
+        //creates a deck of 104 cards (two packs)
         Deck deck2Pack = new Deck(TWO_PACK);
         int twoPacksofCards = 104;
+
         //prints out the dealt cards in an unshuffled deck
         for(int x = 1; x < twoPacksofCards + 1; ++x)
         {
@@ -33,8 +34,10 @@ public class DecksAndHands
         System.out.println();
         //refills the deck
         deck2Pack.init(TWO_PACK);
+
         //shuffles the deck
         deck2Pack.shuffle();
+
         //prints out the dealt cars of a shuffled deck
         for(int x = 1; x < twoPacksofCards + 1; ++x)
         {
@@ -43,7 +46,7 @@ public class DecksAndHands
               System.out.println();
         }             
         System.out.println("\n--------------------------------------------------------"); 
-        //creats a deck of 52 cards
+        //creates a deck of 52 cards
         Deck deck1Pack = new Deck();
         int onePackOfCards = 52;
         //prints out the dealt cards of an unshuffled deck
@@ -56,10 +59,12 @@ public class DecksAndHands
         
         System.out.println("\n");
 
-        //refils the deck with one set of 52 cards
+        //refills the deck with one set of 52 cards
         deck1Pack.init(ONE_PACK);
+
         //shuffles the deck
         deck1Pack.shuffle();
+
         //prints out the dealt cards of the shuffled deck
         for(int x = 1; x < onePackOfCards + 1; ++x)
         {
@@ -69,7 +74,7 @@ public class DecksAndHands
         }     
         
         System.out.println();
-        System.out.println("\nPress enter to continue...");
+        System.out.print("\nPress enter to continue...");
         try
         {
            System.in.read();
@@ -79,13 +84,14 @@ public class DecksAndHands
            e.printStackTrace();
         }
 
-      /****************************************************************
+      /******************************************************************
        * Phase 4
        * @author Ricardo Barbosa 
        * @author Dan Sedano 
        * @author Max Halbert
        * @author Lindsey Reynolds
        * @version 11/11/2019
+       * Description: Testing the Deck and Hand class 
        *****************************************************************/
      
       boolean validHand = false;
