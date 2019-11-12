@@ -1,6 +1,6 @@
 package src;
 
-/*************************
+/*******************************************************
  * 
  * Card.java
  * 
@@ -8,8 +8,9 @@ package src;
  * @author Max Halbert
  * @version November 6, 2019
  * 
- * The structure for the Card class
- */
+ * Description: The structure for the Card class 
+ * Usage: 
+ *******************************************************/
 
 public class Card
 {
@@ -25,19 +26,28 @@ public class Card
    // Checks for illegal card data
    private boolean errorFlag;
 
-   // Constructors
+   /**
+    * Constructor 
+    * @param value
+    * @param suit
+    */
    public Card(char value, Suit suit)
    {
       set(value, suit);
    }
 
-   // Overloaded constructor
+   /**
+    * Overloaded constructor 
+    */
    public Card()
    {
       this('A', Suit.SPADES);
    }
 
-   // Copy Constructor
+   /**
+    * Copy Constructor 
+    * @param otherCard
+    */
    public Card(Card otherCard)
    {
       if (otherCard == null)
