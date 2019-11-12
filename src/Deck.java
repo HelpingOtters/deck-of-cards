@@ -6,27 +6,27 @@ import javax.lang.model.util.ElementScanner6;
 
 import src.Card.Suit;
 
-/*
- * Card.java
+/**********************************************************
+ * Deck.java
  * 
  * @author Lindsey Reynolds
  * @author Dan Sedano
  * @version 11/8/19
  * 
- * The structure for a deck of cards
- */
+ * Description: Creates a deck of cards 
+ * Usage: Holds up to six decks of 52 playing cards 
+ **********************************************************/
 
 public class Deck 
 {
-   // public static variables 
+   //playing card pack values 
    public static final int MAX_CARDS = 312; // 6 packs x 52 cards
    public static final int ONE_PACK = 52; // Standard 52 card deck
    public static boolean beenHereBefore = false; 
 
-   // private static variable for the master pack of cards
+   //creates a new object with one pack of cards 
    private static Card[] masterPack = new Card[ONE_PACK];
 
-   // private member data
    private Card[] cards;
    private int topCard;
 
@@ -37,13 +37,13 @@ public class Deck
     */
    public Deck(int numPacks)
    {
-      // If numPacks is too large, automatically make it 6 packs
+      // maximum packs is 6
       if((numPacks * ONE_PACK) > MAX_CARDS)
          numPacks = 6;
 
       allocateMasterPack();
 
-      // Create the cards array with 52 x numPacks cards
+      // create the cards array with 52 x numPacks cards
       cards = new Card[numPacks * ONE_PACK];
 
       // populate the cards in the deck 
@@ -78,13 +78,12 @@ public class Deck
     */
    public void init(int numPacks) 
    {
-      // Variable to keep track of the current index in masterPack 
-      int masterCounter = 0;
+      
       // Initialize the last index of the array to be the top card of the deck  
       topCard = cards.length;
       
       // Populate the card array with Card objects, copying values from masterPack
-      for(int i = 0; i < cards.length; i++, masterCounter++)
+      for(int masterCounter = 0, i = 0; i < cards.length; i++, masterCounter++)
       {
          // Create a new Card Object, copying it from the masterPack
          cards[i] = new Card(masterPack[masterCounter]);
@@ -129,16 +128,16 @@ public class Deck
    {
       //int topCard = getTopCard();
       Card dealCard;
+      
       //checks if there are cards in the deck
       if(topCard > 0)
       {
-         //assings the top card to the dealCard variable
-         //I used the last card in the deck because
-         //a dealer deals the last card on the deck
-         //when the deck is face-down
+         //assigns the top card to the dealCard variable
          dealCard = cards[getTopCard()-1];
+
          //removes the topcard from the deck
          cards[getTopCard()-1] = null;
+
          //decreases card count
          topCard--;
          return dealCard;
@@ -178,7 +177,6 @@ public class Deck
          returnCard = cards[k];
       }
       return returnCard;
-
    }
 
    private static void allocateMasterPack()
@@ -208,32 +206,6 @@ public class Deck
       
       beenHereBefore = true;
    }
-   /**
-    * Returns a String representation of the deck.
-    * @return returns a String representation of the deck
-    *
-   public String toString()
-   {
-      String deck = "";
-      final int MAX_LINE_LENGTH = 16;
-      
-      for(int x = 1; x < cards.length + 1; x++)
-      {
-         //System.out.println(deck.length());
-         if(cards[x] != null) 
-         {
-            deck = deck + cards[x] + " / ";
-         }  
-         if((deck.length() % MAX_LINE_LENGTH) == 0)
-            deck += "\n";
-
-      }      
-      return deck;
-   }
-   */
-   
-
-
 }
 
 
