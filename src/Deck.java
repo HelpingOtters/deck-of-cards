@@ -6,7 +6,7 @@ import javax.lang.model.util.ElementScanner6;
 
 import src.Card.Suit;
 
-/**********************************************************
+/************************************************************
  * Deck.java
  * 
  * @author Lindsey Reynolds
@@ -15,7 +15,7 @@ import src.Card.Suit;
  * 
  * Description: Creates a deck of cards 
  * Usage: Holds up to six decks of 52 playing cards 
- **********************************************************/
+ ************************************************************/
 
 public class Deck 
 {
@@ -127,8 +127,9 @@ public class Deck
    public Card dealCard()
    {
       //int topCard = getTopCard();
-      Card dealCard;
       
+      Card dealCard;
+
       //checks if there are cards in the deck
       if(topCard > 0)
       {
