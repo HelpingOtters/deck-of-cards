@@ -2,7 +2,6 @@ package src;
 
 import java.util.Random;
 
-import javax.lang.model.util.ElementScanner6;
 
 import src.Card.Suit;
 
@@ -132,13 +131,11 @@ public class Deck
       if(topCard > 0)
       {
          //assings the top card to the dealCard variable
-         //I used the last card in the deck because
-         //a dealer deals the last card on the deck
-         //when the deck is face-down
-         //dealCard = cards[getTopCard()-1];
-         dealCard = inspectCard(getTopCard() - 1);
+         //deals card from the back of a deck to
+         // simulate a face-down deck
+         dealCard = inspectCard(topCard - 1);
          //removes the topcard from the deck
-         cards[getTopCard()-1] = null;
+         cards[topCard-1] = null;
          //decreases card count
          topCard--;
          return dealCard;
