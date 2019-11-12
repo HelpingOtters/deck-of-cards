@@ -1,110 +1,15 @@
 package src;
-/**
- * Hand.java
- * 
- * @author Ricardo Barbosa
- *         Max Halbert
- * 
- * The hands of the Card class 
- */
-
-// public class Hand 
-// {
-//     public static final int MAX_CARDS = 50;
-//     private Card[] myCards = new Card[MAX_CARDS];
-//     private int numCards;
-
-//     /**
-//      * Initialize the hand by creating an empty array
-//      */
-//     public Hand()
-//     {
-//         resetHand();
-//     }
-
-//     /**
-//      * Resets the hand by emptying the array 
-//      */
-//     public void resetHand()
-//     {
-//         myCards = new Card[MAX_CARDS];
-//         numCards = 0;
-//     }
-
-//     /**
-//      * Adds card to hand until hand is full 
-//      */
-//     public boolean takeCard(Card card)
-//     {
-//         if (numCards >= MAX_CARDS)
-//         {
-//             return false;
-//         }
-
-//         Card newCard = new Card(card.getValue(), card.getSuit());
-//         myCards[numCards++] = newCard;
-//         return true;
-//     }
-
-//     /**
-//      * playCard() will remove the recent card from hand and return it 
-//      */
-//     public Card playCard()
-//     {
-//         numCards--;
-//         Card card = myCards[numCards];
-//         myCards[numCards] = null;
-//         return card;
-//     }
-
-//     /**
-//      * Stringify the current hand 
-//     */
-//     public String toString()
-//     {
-//         String currentHand= "";
-//         for (int i = 0; i < numCards; i++)
-//         {
-//             currentHand += myCards[i] + " ";
-//         }
-//         return "Hand = ( " + currentHand + ")";
-
-//     }
-
-//     /**
-//      * Return number of cards in the hand 
-//      */
-//     public int getNumCards()
-//     {
-//         return numCards;
-//     }
-
-//     /**
-//     * Returns individual card 
-//     */
-//     public Card inspectCard(int k)
-//     {
-//         if (k >= 0 && k < MAX_CARDS)
-//         {
-//             return myCards[k];
-//         }
-
-//         return new Card('Z', Card.Suit.DIAMONDS);
-//     }
-
-// }
-
-/**
- * 
- * Hand.java class contains cards of a hand and number of cards in the hand
- * take a card to the hand or play a card from the hand
+/*****************************************************************
+ * Hand.java 
  * 
  * @author  Max Halbert
- *          Ricardo Barbosa
- *          
+ * @author  Ricardo Barbosa      
  * @version November 7, 2019
  * 
-*/
+ * Description: Class contains cards in a hand 
+ * 
+ * Usage: Take a card or a play a card from that hand 
+*******************************************************************/
 
 public class Hand
 {
@@ -114,22 +19,31 @@ public class Hand
    private Card[] myCards;
    private int numCards;
    
+   //Constructor
    public Hand()
    {
       myCards = new Card[MAX_CARDS];
       numCards = 0;
    }
    
+   /**
+    * resets hand 
+    */
    public void resetHand()
    {
-      numCards = 0;  // the same myCards array will be reused for next hand
+      numCards = 0;  
    }
    
+   /**
+    * adds a card to the next available position 
+    * @param card
+    * @return boolean
+    */
    public boolean takeCard(Card card)
    {
       if(numCards < MAX_CARDS && card != null && !card.getErrorFlag())
       {
-         Card tempCard = new Card(card);  // prevent privacy leaks
+         Card tempCard = new Card(card);  
          myCards[numCards] = tempCard;
          numCards++;
          return true;     
@@ -137,6 +51,10 @@ public class Hand
       return false;
    }
    
+   /**
+    * plays the card until nno more in hand 
+    * @return null
+    */
    public Card playCard()
    {
       if(numCards > 0)
@@ -148,6 +66,7 @@ public class Hand
       return null;  // since no more cards in the hand
    }
    
+   //stringifies the hand 
    public String toString()
    {
       String myHand = "";
@@ -162,11 +81,13 @@ public class Hand
       return myHand;
    }
    
+   //Accessor
    public int getNumCards()
    {
       return numCards;
    }
-   
+
+   //Accessor 
    public Card inspectCard(int k)
    {
 
