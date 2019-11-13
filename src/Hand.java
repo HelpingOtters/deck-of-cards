@@ -15,8 +15,7 @@ package src;
 public class Hand
 {
   
-   // a hand can receive as many as a deck can give, so same value for both
-   public static final  int MAX_CARDS = Deck.MAX_CARDS; 
+   public static final  int MAX_CARDS = 52; // maximum 52 cards only
    
    private Card[] myCards;
    private int numCards;
